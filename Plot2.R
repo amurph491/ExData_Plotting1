@@ -6,7 +6,10 @@ ndata <- data[which(data$Date=="1/2/2007" | data$Date=="2/2/2007"),]
 
 ndata$Date <- as.Date(ndata$Date,"%d/%m/%Y")
 
-with(ndata,hist(Global_active_power,col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)"))
+ndata$DT<-strptime(paste(ndata$Date,ndata$Time),format="%Y-%m-%d %H:%M:%S")
+plot.new()
+plot(ndata$DT,ndata$Global_active_power,col="black",main="Global Active Power",xlab="",ylab="Global Active Power (kilowatts)", type='n')
+lines(ndata$DT,ndata$Global_active_power)
 
-dev.copy(png,file="./ExData_Plotting1/apm_figure/plot1.png",width=480,height=480)
+dev.copy(png,file="./ExData_Plotting1/apm_figure/plot2.png",width=480,height=480)
 dev.off()
