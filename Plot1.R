@@ -1,5 +1,3 @@
-setwd("C:/Users/amurphy/Documents/Customer Intelligence/R-Practice/ExpDataAnalysis/CP1")
-
 data <- read.table("./exdata-data-household_power_consumption/household_power_consumption.txt", sep=";", header=TRUE, na.strings="?")
 
 ndata <- data[which(data$Date=="1/2/2007" | data$Date=="2/2/2007"),]
